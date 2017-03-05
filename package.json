@@ -1,0 +1,30 @@
+{
+  "name": "saint-just-auth-api",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Auth API for the Saint-Just trolls persecutor project",
+  "keywords": ["Saint-Just","Auth API"],
+  "author": {
+  	"name" : "Mario Trucco", 
+  	"email" : "mario.trucco@gmail.com"
+  },
+  "license": "AGPL-3.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "^4.8.5",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "swagger-express-mw": "^0.1.0"
+  },
+  "devDependencies": {
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "swagger project test"
+  }
+}
