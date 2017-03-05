@@ -53,7 +53,6 @@ function register(req, res){
 				if (err) {
 					console.log(err);
 					//TODO handle error message
-					//TODO avoid DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, plug in your own promise library instead: http://mongoosejs.com/docs/promises.html
 					return res.status(500).json('Registration Failed!');
 				}
 				passport.authenticate('local')(req, res, function () {
