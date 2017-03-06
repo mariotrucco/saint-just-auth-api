@@ -26,27 +26,31 @@ However, the author is building it for a project that will be called Saint-Just 
 
 The idea for the name came from [Giap](http://www.wumingfoundation.com/giap/),  an Italian blog where an entity called like that already does the job. [Saint-Just](https://it.wikipedia.org/wiki/Louis_Antoine_de_Saint-Just "Louis Antoine de Saint-Just") has been persecuting trolls since 1792, the tool is named after him
 
-## Clone the repo
+## How do I get started?
+
+Honestly, there is not much to do yet. But you can 
+
+### Clone the repo
 ```bash
 git clone https://github.com/mariotrucco/saint-just-auth-api.git
 ```
 
-## Install node modules
+### Install node modules
 ```bash
 npm install
 ```
 
-## Open swagger description editor and view docs preview
+### Open swagger description editor and view docs preview
 ```bash
 swagger project edit
 ```
 
-## Run tests
+### Run tests
 ```bash
 swagger project test
 ```
 
-## Run Auth API server locally
+### Run Auth API server locally
 ```bash
 swagger project start
 ```
