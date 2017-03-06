@@ -24,7 +24,7 @@ This Auth API project stands on its own and will be general enough to be used fo
 
 However, the author is building it for a project that will be called Saint-Just trolls persecutor, a tool for monitoring someone's social accounts or communities in order to get rid of abusive comments and unwanted accounts.
 
-The idea for the name came from [Giap](http://www.wumingfoundation.com/giap/),  an Italian blog where an entity called like that already does the job. [Saint-Just](https://it.wikipedia.org/wiki/Louis_Antoine_de_Saint-Just "Louis Antoine de Saint-Just") has been persecuting trolls since 1792, the tool is named after him
+The idea for the name came from [Giap](http://www.wumingfoundation.com/giap/),  an Italian blog where an entity called like that already does the job. [Saint-Just](https://en.wikipedia.org/wiki/Louis_Antoine_de_Saint-Just "Louis Antoine de Saint-Just") has been persecuting trolls since 1792, the tool is named after him
 
 ## How do I get started?
 
