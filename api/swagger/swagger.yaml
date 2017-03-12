@@ -178,8 +178,8 @@ definitions:
       
   UserWithCredentials:
     description: |
-      Contains the properties of a user, with credentials, excepted for the verified flag
-      (intended as input for the creation of a new user)
+      Contains the properties of a user, with credentials, except for the verified flag
+      (Object intended as input for the creation of a new user)
     allOf:
       - $ref: '#/definitions/BaseUser'
       - type: object
