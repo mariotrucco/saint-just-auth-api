@@ -18,12 +18,15 @@
   },
   "main": "app.js",
   "dependencies": {
+    "elastic-email-api": "^1.4.2",
     "express": "^4.12.3",
     "jsonwebtoken": "^7.3.0",
+    "moment": "^2.18.0",
     "mongoose": "^4.8.5",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
+    "randomstring": "^1.1.5",
     "sinon": "^2.0.0",
     "swagger-express-mw": "^0.1.0"
   },

@@ -69,7 +69,7 @@ paths:
     x-swagger-router-controller: users
     get:
       description: |
-        Get the current user
+        Get the current (authenticated) user
       operationId: get-current
       parameters:
         - name: x-access-token
@@ -86,6 +86,53 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+            
+  /emails:
+    x-swagger-router-controller: email
+    post:
+      description: |
+        Generate and send an email confirmation code for the current (authenticated) user 
+      operationId: generate-code
+      parameters:
+        - name: x-access-token
+          in: header
+          description: Auth token
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+            
+  /emails/{code}:
+    x-swagger-router-controller: email
+    get:
+      description: |
+        Confirm an email specifying the code
+      operationId: confirm-email
+      parameters:
+        - name: code
+          in: path
+          description: Confirmation Code
+          required: true
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"            
+    
+  
+  
             
   /swagger:
     x-swagger-pipe: swagger_raw

@@ -27,7 +27,6 @@ function getCurrent(req, res){
 			console.log(err);
 			return res.status(err.status).json(err.message);
 		}
-		//return res.status(200).json('TODO ME');
 		return res.status(200).json(req.loggedUser);
 	});
 }
