@@ -16,7 +16,6 @@ var Verify = require('../helpers/verify');
  */
 module.exports = {
 		'get-current'	: getCurrent,
-		'get-by-id'		: getById,
 		'register'      : register
 };
 
@@ -31,10 +30,6 @@ function getCurrent(req, res){
 		//return res.status(200).json('TODO ME');
 		return res.status(200).json(req.loggedUser);
 	});
-}
-
-function getById(req, res){
-	return res.status(200).json('TODO BY ID');
 }
 
 function register(req, res){

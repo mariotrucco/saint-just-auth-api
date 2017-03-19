@@ -40,6 +40,29 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+
+  /users:
+    x-swagger-router-controller: users
+    post:
+      description: |
+        Register a new user.
+      operationId: register
+      parameters:
+        - name: user
+          in: body
+          description: user object, including username and password
+          required: true
+          schema:
+            $ref: '#/definitions/UserWithCredentials'
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
       
   
   /users/me:
@@ -64,50 +87,6 @@ paths:
           schema:
             $ref: "#/definitions/ErrorResponse"
             
-  /users/{id}:
-    x-swagger-router-controller: users
-    get:
-      description: |
-        Get a user by their id
-      operationId: get-by-id
-      parameters:
-        - name: id  
-          in: path
-          description: Id of the requested user
-          required: true
-          type: string
-      responses:
-        "200":
-          description: Success
-          schema:
-            $ref: "#/definitions/User"
-        default:
-          description: Error
-          schema:
-            $ref: "#/definitions/ErrorResponse"
-            
-  /users:
-    x-swagger-router-controller: users
-    post:
-      description: |
-        Register a new user.
-      operationId: register
-      parameters:
-        - name: user
-          in: body
-          description: user object, including username and password
-          required: true
-          schema:
-            $ref: '#/definitions/UserWithCredentials'
-      responses:
-        "200":
-          description: Success
-          schema:
-            $ref: "#/definitions/SuccessResponse"
-        default:
-          description: Error
-          schema:
-            $ref: "#/definitions/ErrorResponse"
   /swagger:
     x-swagger-pipe: swagger_raw
 
