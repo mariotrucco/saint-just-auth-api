@@ -12,7 +12,8 @@ var User = new Schema({
 	verified	: { type : Boolean, unique : false, required : true },
 	country		: { type : String,	unique : false, required : true },
 	locale		: { type : String,	unique : false, required : true },
-	timezone	: { type : String,	unique : false, required : true }
+	timezone	: { type : String,	unique : false, required : true },
+	insertDate	: { type : Date,	unique : false, required : true }
 });
 
 User.plugin(passportLocalMongoose);

@@ -47,6 +47,7 @@ function register(req, res){
 				country		: req.swagger.params.user.value.country,
 				locale		: req.swagger.params.user.value.locale,
 				timezone	: req.swagger.params.user.value.timezone,
+				insertDate	: new Date()
 			}), 
 			req.swagger.params.user.value.password, 
 			function(err, user) {
