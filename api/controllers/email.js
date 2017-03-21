@@ -38,10 +38,10 @@ function generateCode(req, res){
 		    	elastic.request({
 		    	    path: '/email/send',
 		    	    params: {
-		    	    	template		: 'test_confirmemail_it', 
+		    	    	template		: config.elasticemailConfirm+'_'+req.loggedUser.locale, 
 		    	    	to				: req.loggedUser.email,
-		    	    	merge_firstname	: req.loggedUser.username,
-		    	    	merge_url		: 'http://localhost:10010/emails/'+code
+		    	    	merge_username	: req.loggedUser.username,
+		    	    	merge_url		: config.baseUrl+'/emails/'+code
 		    	    },
 		    	    callback: function (responseObj) {
 		    	        console.log(responseObj)
