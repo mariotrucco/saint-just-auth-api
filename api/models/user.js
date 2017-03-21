@@ -7,13 +7,14 @@ var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var User = new Schema({
-	username	: { type : String,	unique : true,	required : true },
-	email		: { type : String,	unique : true,	required : true },
-	verified	: { type : Boolean, unique : false, required : true },
-	country		: { type : String,	unique : false, required : true },
-	locale		: { type : String,	unique : false, required : true },
-	timezone	: { type : String,	unique : false, required : true },
-	insertDate	: { type : Date,	unique : false, required : true }
+	username	: { type : String,	unique : true,	required : true 	},
+	email		: { type : String,	unique : true,	required : true 	},
+	verified	: { type : Boolean, unique : false, required : true 	},
+	verifyDate	: { type : Date, 	unique : false, required : false	},
+	country		: { type : String,	unique : false, required : true 	},
+	locale		: { type : String,	unique : false, required : true 	},
+	timezone	: { type : String,	unique : false, required : true 	},
+	insertDate	: { type : Date,	unique : false, required : true 	}
 });
 
 User.plugin(passportLocalMongoose);
