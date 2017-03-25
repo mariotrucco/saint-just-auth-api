@@ -106,6 +106,35 @@ describe('helpers', function() {
 			});
 			
 		});
+		
+		
+		describe('validateCountry', function() {
+			
+			it('should not accept null', function(done) {
+				var isValid = Validate.validateCountry(null);
+				isValid.should.equal(false);
+				done();
+			});
+			
+			it('should accept "KZ"', function(done) {
+				var isValid = Validate.validateCountry('KZ');
+				isValid.should.equal(true);
+				done();
+			});
+			
+			it('should not accept "FRA"', function(done) {
+				var isValid = Validate.validateCountry('FRA');
+				isValid.should.equal(false);
+				done();
+			});
+			
+			it('should not accept undefined', function(done) {
+				var isValid = Validate.validateCountry();
+				isValid.should.equal(false);
+				done();
+			});
+			
+		});
 	
 	});
 	

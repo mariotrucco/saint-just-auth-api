@@ -34,6 +34,9 @@ function register(req, res){
 	if(!Validate.validateLocale(req.swagger.params.user.value.locale)){
 		return res.status(500).json('Invalid locale');
 	}
+	if(!Validate.validateCountry(req.swagger.params.user.value.country)){
+		return res.status(500).json('Invalid country');
+	}
 	
 	User.register(
 			new User({ 

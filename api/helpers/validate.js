@@ -1,6 +1,7 @@
 'use strict';
 var moment = require('moment-timezone');
 var Isemail = require('isemail');
+var countries = require('country-data').countries;
 var locales = require('../../config/locales');
 
 
@@ -17,4 +18,8 @@ exports.validateEmail = function(email){
 
 exports.validateLocale = function(locale){
 	return Boolean(locales.supported[locale]);
+}
+
+exports.validateCountry = function(code){
+	return Boolean(countries[code]) && countries[code].alpha2 === code;
 }
