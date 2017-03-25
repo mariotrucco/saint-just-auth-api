@@ -31,6 +31,9 @@ function register(req, res){
 	if(!Validate.validateEmail(req.swagger.params.user.value.email)){
 		return res.status(500).json('Invalid email');
 	}
+	if(!Validate.validateLocale(req.swagger.params.user.value.locale)){
+		return res.status(500).json('Invalid locale');
+	}
 	
 	User.register(
 			new User({ 

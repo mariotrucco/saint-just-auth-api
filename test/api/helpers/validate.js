@@ -76,7 +76,36 @@ describe('helpers', function() {
 			});
 			
 			
-		})
+		});
+		
+		
+		describe('validateLocale', function() {
+			
+			it('should not accept null', function(done) {
+				var isValid = Validate.validateLocale(null);
+				isValid.should.equal(false);
+				done();
+			});
+			
+			it('should accept "en-US"', function(done) {
+				var isValid = Validate.validateLocale('en-US');
+				isValid.should.equal(true);
+				done();
+			});
+			
+			it('should not accept "en-USA"', function(done) {
+				var isValid = Validate.validateLocale('en-USA');
+				isValid.should.equal(false);
+				done();
+			});
+			
+			it('should not accept undefined', function(done) {
+				var isValid = Validate.validateLocale();
+				isValid.should.equal(false);
+				done();
+			});
+			
+		});
 	
 	});
 	

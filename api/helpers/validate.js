@@ -1,6 +1,7 @@
 'use strict';
 var moment = require('moment-timezone');
 var Isemail = require('isemail');
+var locales = require('../../config/locales');
 
 
 exports.validateTimezone = function(timezone){
@@ -12,4 +13,8 @@ exports.validateEmail = function(email){
 		return false;
 	}
 	return Isemail.validate(email) === true;
+}
+
+exports.validateLocale = function(locale){
+	return Boolean(locales.supported[locale]);
 }
