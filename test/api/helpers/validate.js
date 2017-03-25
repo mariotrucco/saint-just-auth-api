@@ -44,12 +44,3 @@ describe('helpers', function() {
 	});
 	
 });
-
-
-/*
-describe('helpers', function() {
-	validate.validateTimezone('America/Los_Angeles');
-	it('should return 400 bad request for missing x-access-token', function(done) {}
-	
-});
-*/

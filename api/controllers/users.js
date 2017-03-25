@@ -5,15 +5,7 @@ var passport = require('passport');
 var Verify = require('../helpers/verify');
 var validate = require('../helpers/validate');
 
-/*
 
- For a controller in a127 (which this is) you should export the functions referenced in your Swagger document by name.
-
- Either:
-  - The HTTP Verb of the corresponding operation (get, put, post, delete, etc)
-  - Or the operationId associated with the operation in your Swagger document
-
- */
 module.exports = {
 		'get-current'	: getCurrent,
 		'register'      : register
