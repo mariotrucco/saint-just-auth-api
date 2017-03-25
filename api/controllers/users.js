@@ -3,7 +3,7 @@
 var User = require('../models/user');
 var passport = require('passport');
 var Verify = require('../helpers/verify');
-var validate = require('../helpers/validate');
+var Validate = require('../helpers/validate');
 
 
 module.exports = {
@@ -25,7 +25,7 @@ function getCurrent(req, res){
 
 function register(req, res){
 
-	if(!validate.validateTimezone(req.swagger.params.user.value.timezone)){
+	if(!Validate.validateTimezone(req.swagger.params.user.value.timezone)){
 		return res.status(500).json('Inavlid timezone');
 	}
 	
