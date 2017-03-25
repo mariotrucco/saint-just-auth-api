@@ -25,29 +25,23 @@ function getCurrent(req, res){
 
 function register(req, res){
 
-	if(!Validate.validateTimezone(req.swagger.params.user.value.timezone)){
-		return res.status(500).json('Invalid timezone');
-	}
-	if(!Validate.validateEmail(req.swagger.params.user.value.email)){
-		return res.status(500).json('Invalid email');
-	}
-	if(!Validate.validateLocale(req.swagger.params.user.value.locale)){
-		return res.status(500).json('Invalid locale');
-	}
-	if(!Validate.validateCountry(req.swagger.params.user.value.country)){
-		return res.status(500).json('Invalid country');
+	var newUser = new User({ 
+		username	: req.swagger.params.user.value.username,
+		email		: req.swagger.params.user.value.email,
+		verified	: false,
+		country		: req.swagger.params.user.value.country,
+		locale		: req.swagger.params.user.value.locale,
+		timezone	: req.swagger.params.user.value.timezone,
+		insertDate	: new Date()
+	});
+	
+	var validationError = Validate.validateUser(newUser);
+	if(validationError){
+		return res.status(500).json(validationError);
 	}
 	
 	User.register(
-			new User({ 
-				username	: req.swagger.params.user.value.username,
-				email		: req.swagger.params.user.value.email,
-				verified	: false,
-				country		: req.swagger.params.user.value.country,
-				locale		: req.swagger.params.user.value.locale,
-				timezone	: req.swagger.params.user.value.timezone,
-				insertDate	: new Date()
-			}), 
+			newUser, 
 			req.swagger.params.user.value.password, 
 			function(err, user) {
 				if (err) {

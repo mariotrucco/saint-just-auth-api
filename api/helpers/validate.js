@@ -23,3 +23,20 @@ exports.validateLocale = function(locale){
 exports.validateCountry = function(code){
 	return Boolean(countries[code]) && countries[code].alpha2 === code;
 }
+
+
+exports.validateUser = function(user){
+	if(!exports.validateTimezone(user.timezone)){
+		return 'Invalid timezone';
+	}
+	if(!exports.validateEmail(user.email)){
+		return 'Invalid email';
+	}
+	if(!exports.validateLocale(user.locale)){
+		return 'Invalid locale';
+	}
+	if(!exports.validateCountry(user.country)){
+		return 'Invalid country';
+	}
+	return null;
+}
