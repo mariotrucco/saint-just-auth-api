@@ -26,7 +26,10 @@ function getCurrent(req, res){
 function register(req, res){
 
 	if(!Validate.validateTimezone(req.swagger.params.user.value.timezone)){
-		return res.status(500).json('Inavlid timezone');
+		return res.status(500).json('Invalid timezone');
+	}
+	if(!Validate.validateEmail(req.swagger.params.user.value.email)){
+		return res.status(500).json('Invalid email');
 	}
 	
 	User.register(
