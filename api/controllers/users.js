@@ -3,7 +3,7 @@
 var User = require('../models/user');
 var passport = require('passport');
 var Verify = require('../helpers/verify');
-
+var validate = require('../helpers/validate');
 
 /*
 
@@ -33,6 +33,10 @@ function getCurrent(req, res){
 
 function register(req, res){
 
+	if(!validate.validateTimezone(req.swagger.params.user.value.timezone)){
+		return res.status(500).json('Inavlid timezone');
+	}
+	
 	User.register(
 			new User({ 
 				username	: req.swagger.params.user.value.username,
@@ -47,8 +51,12 @@ function register(req, res){
 			function(err, user) {
 				if (err) {
 					console.log(err);
-					//TODO handle error message
-					return res.status(500).json('Registration Failed!');
+					//TODO better error handling
+					if(err.errors && err.errors.email){
+						return res.status(500).json(err.errors.email.message+", kind: "+err.errors.email.kind);
+					}
+					
+					return res.status(500).json(err.message);
 				}
 				passport.authenticate('local')(req, res, function () {
 					return res.status(200).json('Registration Successful!');
