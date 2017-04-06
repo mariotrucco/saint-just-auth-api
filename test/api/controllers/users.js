@@ -9,7 +9,7 @@ describe('controllers', function() {
   describe('users', function() {
 
     describe('GET /users/me', function() {
-    	
+	
       it('should return 400 bad request for missing x-access-token', function(done) {
 
             request(server)
@@ -17,14 +17,14 @@ describe('controllers', function() {
               .set('Accept', 'application/json')
               .expect(400)
               .end(function(err, res) {
-            	
-            	should.not.exist(err);
-            	done();
-            	
+		
+		should.not.exist(err);
+		done();
+		
               });
-      });      	
-    	
-    	
+      });	
+	
+	
       it('should return 401 unauthorized because of wrong x-access-token', function(done) {
 
         request(server)

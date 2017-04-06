@@ -6,11 +6,11 @@ It should export an object like this:
 ```javascript
 
 module.exports = {
-    'secretKey'				: A_SECRET_KEY_OF_YOUR_CHOICE_FOR_PASSPORT,
-    'mongoUrl'				: YOUR_MONGO_URL,
-    'elasticemailAPIKey'	: YOUR_ELASTICEMAIL_API_KEY
-    'elasticemailConfirm'	: ELASTICEMAIL_CONFIRMATION_TEMPLATE,
-    'baseUrl'				: API_BASE_URL
+    'secretKey'             : A_SECRET_KEY_OF_YOUR_CHOICE_FOR_PASSPORT,
+    'mongoUrl'              : YOUR_MONGO_URL,
+    'elasticemailAPIKey'    : YOUR_ELASTICEMAIL_API_KEY
+    'elasticemailConfirm'   : ELASTICEMAIL_CONFIRMATION_TEMPLATE,
+    'baseUrl'               : API_BASE_URL
 }
 
 ```
