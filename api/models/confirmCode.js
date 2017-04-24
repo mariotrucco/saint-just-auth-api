@@ -10,11 +10,32 @@ var Schema = mongoose.Schema,
 	ObjectId = Schema.ObjectId;
 
 var ConfirmCode = new Schema({
-	_user		: { type : ObjectId,	ref : 'User' },
-	code		: { type : String,		unique : true,	required : true },
-	insertDate	: { type : Date,		unique : false, required : true },
-	expireDate	: { type : Date,		unique : false, required : true },
-	operation	: { type : String,		unique : false, required : true }
+    _user: {
+        type: ObjectId,
+        ref: 'User',
+        index: true
+    },
+    code: {
+        type: String,
+        unique: true,
+        required: true,
+        index: true
+    },
+    insertDate: {
+        type: Date,
+        unique: false,
+        required: true
+    },
+    expireDate: {
+        type: Date,
+        unique: false,
+        required: true
+    },
+    operation: {
+        type: String,
+        unique: false,
+        required: true
+    }
 });
 
 module.exports = mongoose.model('ConfirmCode', ConfirmCode);

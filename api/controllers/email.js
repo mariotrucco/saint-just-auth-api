@@ -52,7 +52,7 @@ function generateCode(req, res){
 		})
 		.catch(function(err) {
 			return res.status(err.status).json(err.message);
-		});;
+		});
 
 	});
 }
