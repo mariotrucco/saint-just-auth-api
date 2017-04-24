@@ -3,16 +3,12 @@
 var config = require('./config/config');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
 var SwaggerExpress = require('swagger-express-mw');
 var app = require('express')();
 
 //passport config
-var User = require('./api/models/user');
+var Authenticate = require('./api/helpers/authenticate')
 app.use(passport.initialize());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 
 module.exports = app; // for testing
