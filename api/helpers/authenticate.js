@@ -47,3 +47,42 @@ exports.facebook = passport.use(new FacebookStrategy(facebookConfig, function(ac
 		done(err);
 	});
 }));
+
+var GoogleStrategy = require('passport-google-oauth20').Strategy;
+var googleConfig = config.google;
+googleConfig.callbackURL = config.baseUrl+'/logingooglecb';
+exports.google = passport.use(new GoogleStrategy(googleConfig, function(accessToken, refreshToken, profile, done){
+	User.findOne({ 'oauth2.google.oauthId' : profile.id })
+	.then(function(user) {
+		if(user !== null){
+			done(null, user);
+		}else{
+			console.dir(profile);
+			var user = new User({
+				username	: profile.displayName,
+				verified	: true,
+				insertDate	: new Date(),
+				verifyDate	: new Date(),
+			    oauth2: {
+			    	google: {
+			            oauthId			: profile.id,
+			            oauthToken		: accessToken,
+			            refreshToken	: refreshToken
+			        }
+			    }
+			});
+			user.save()
+			.then(function(){
+				done(null, user);
+			})
+			.catch(function(err) {
+				done(err);
+			});
+		}
+	})
+	.catch(function(err) {
+		done(err);
+	});
+}));
+
+

@@ -13,7 +13,11 @@ module.exports = {
     'baseUrl'               : API_BASE_URL,
     'facebook'  : { 
         'clientID'      : YOUR_FACEBOOK_APP_CLIENT_ID,
-        'clientSecret'  : YOUR_FACEBOOK_APP_CLIENT_ID
+        'clientSecret'  : YOUR_FACEBOOK_APP_CLIENT_SECRET
+    },
+    'google'    : {
+        'clientID'      : YOUR_GOOGLE_APP_CLIENT_ID,
+        'clientSecret'  : YOUR_GOOGLE_APP_CLIENT_SECRET
     }
 }
 
@@ -27,3 +31,5 @@ Where:
 + __baseUrl__ is the base url of your Saint-Just Auth API
 + __facebook.clientID__  is the client id of your [Facebook APP](https://developers.facebook.com/apps/) (if you enable Facebook Login)
 + __facebook.clientSecret__ is the client secret of your [Facebook APP](https://developers.facebook.com/apps/) (if you enable Facebook Login)
++ __google.clientID__  is the client id of your [Google APP](https://console.developers.google.com/) (if you enable Google Login)
++ __google.clientSecret__ is the client secret of your [Google APP](https://console.developers.google.com/) (if you enable Google Login)

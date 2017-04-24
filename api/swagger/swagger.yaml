@@ -62,7 +62,7 @@ paths:
     x-swagger-router-controller: login
     get:
       description: |
-        Login (or registration) with Facebook Login (oAuth2)
+        Callback for Facebook Login
       operationId: facebook-callback
       responses:
         "200":
@@ -72,7 +72,40 @@ paths:
         default:
           description: Error
           schema:
-            $ref: "#/definitions/ErrorResponse"            
+            $ref: "#/definitions/ErrorResponse"
+            
+  /login/google:
+    x-swagger-router-controller: login
+    get:
+      description: |
+        Login (or registration) with Google Login (oAuth2)
+      operationId: google
+      produces: ['text/plain']
+      responses:
+        "200":
+          description: Success
+          schema:
+            type: string
+        default:
+          description: Error
+          schema:
+            type: string
+            
+  /logingooglecb:
+    x-swagger-router-controller: login
+    get:
+      description: |
+        Callback for Google Login
+      operationId: google-callback
+      responses:
+        "200":
+          description: Success
+          schema:
+            $ref: "#/definitions/SuccessResponse"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"  
 
   /users:
     x-swagger-router-controller: users

@@ -60,6 +60,17 @@ var User = new Schema({
             oauthId: {
                 type: String,
                 unique: true,
+                sparse: true,
+                index: true
+            },
+            oauthToken: String,
+            refreshToken: String
+        },
+        google: {
+            oauthId: {
+                type: String,
+                unique: true,
+                sparse: true,
                 index: true
             },
             oauthToken: String,
