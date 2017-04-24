@@ -27,6 +27,7 @@ function register(req, res){
 
 	var newUser = new User({ 
 		username	: req.swagger.params.user.value.username,
+		displayName	: req.swagger.params.user.value.username,
 		email		: req.swagger.params.user.value.email,
 		verified	: false,
 		country		: req.swagger.params.user.value.country,

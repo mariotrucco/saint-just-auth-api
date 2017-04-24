@@ -17,11 +17,13 @@ exports.facebook = passport.use(new FacebookStrategy(facebookConfig, function(ac
 	User.findOne({ 'oauth2.facebook.oauthId' : profile.id })
 	.then(function(user) {
 		if(user !== null){
+			console.dir(user);
 			done(null, user);
 		}else{
 			console.dir(profile);
 			var user = new User({
-				username	: profile.displayName,
+				username	: 'facebook_'+profile.id,
+				displayName	: profile.displayName,
 				email		: profile.email,
 				verified	: true,
 				insertDate	: new Date(),
@@ -59,7 +61,8 @@ exports.google = passport.use(new GoogleStrategy(googleConfig, function(accessTo
 		}else{
 			console.dir(profile);
 			var user = new User({
-				username	: profile.displayName,
+				username	: 'google_'+profile.id,
+				displayName	: profile.displayName,
 				verified	: true,
 				insertDate	: new Date(),
 				verifyDate	: new Date(),

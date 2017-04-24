@@ -55,7 +55,8 @@ function facebookCallback(req, res){
 		}
 		req.logIn(user, function(err) {
 			if (err) {
-				return res.status(401).json(info.message);
+				console.log(err);
+				return res.status(500).json(err.message);
 			}
 			var token = Verify.getToken(user);
 			//TODO handle response object
@@ -85,7 +86,8 @@ function googleCallback(req, res){
 		}
 		req.logIn(user, function(err) {
 			if (err) {
-				return res.status(401).json(info.message);
+				console.log(err);
+				return res.status(500).json(err.message);
 			}
 			var token = Verify.getToken(user);
 			//TODO handle response object
