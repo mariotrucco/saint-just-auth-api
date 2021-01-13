@@ -1,3 +1,8 @@
+# ARCHIVED
+
+I haven't had time to work on this in the end 😓
+
+
 # Saint-Just Auth API
 Auth API for the Saint-Just trolls persecutor project.
 Development at early stage
